@@ -1,0 +1,139 @@
+<html>
+
+<head>
+    <title>Melissa Gloria - 06311940000030</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        const labels = [
+            '2011',
+            '2012',
+            '2013',
+            '2014',
+            '2015',
+            '2016',
+            '2017',
+            '2018',
+            '2019',
+            '2020',
+        ];
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Prancis',
+                    fill: false,
+                    animations: {
+                        y: {
+                            duration: 2000,
+                            delay: 500
+                        }
+                    },
+                    backgroundColor: 'rgb(255, 45, 45)',
+                    borderColor: 'rgb(255, 45, 45)',
+                    data: [42864.0189689606, 42790.6328838388, 42816.2714819044, 43021.3946358903, 43345.7864281559, 43705.1475593257, 44577.0645745394, 45251.9054105957, 45834.1669122703, 42025.6173730617],
+                }, {
+                    label: 'Amerika Serikat',
+                    fill: false,
+                    animations: {
+                        y: {
+                            duration: 2000,
+                            delay: 1500
+                        }
+                    },
+                    backgroundColor: 'rgb(249, 186, 51)',
+                    borderColor: 'rgb(249, 186, 51)',
+                    borderDash: [5, 5],
+                    data: [54758.8332734292, 55581.4138435205, 56214.4286771294, 57213.2678405623, 58540.2960929977, 59112.2422096532, 60109.6557260476, 61585.7560382102, 62630.8732765742, 60235.7284916969],
+                }, {
+                    label: 'Jerman',
+                    backgroundColor: 'rgb(212, 255, 75)',
+                    borderColor: 'rgb(212, 255, 75)',
+                    data: [49684.6130740715, 49798.9676727479, 49880.5735214304, 50770.6134878236, 51083.9216615196, 51803.2354226767, 52952.8750212389, 53463.4014817389, 53639.26072156, 50922.3580234484],
+                    fill: true,
+                }
+            ]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'GDP 10 Tahun ke Belakang',
+                        font: {
+                            size: 35
+                        }
+                    },
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            color: 'rgb(149, 145, 68)'
+                        }
+                    },
+                    subtitle: {
+                        display: true,
+                        text: 'Melissa Gloria - 06311940000030',
+                        font: {
+                            size: 20,
+                            lineHeight: 1
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Tahun'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'GDP per kapita'
+                        }
+                    }
+                }, animations: {
+                    y: {
+                        easing: 'easeInOutElastic',
+                        from: (ctx) => {
+                            if (ctx.type === 'data') {
+                                if (ctx.mode === 'default' && !ctx.dropped) {
+                                    ctx.dropped = true;
+                                    return 0;
+                                }
+                            }
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+</body>
+
+</html>
